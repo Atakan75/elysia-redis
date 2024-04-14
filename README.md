@@ -5,7 +5,7 @@ Redis plugin for [Elysia.js](https://elysiajs.com)
 ## Installation
 
 ```bash
-bun add @Atakan75/elysia-redis
+bun add @atakan75/elysia-redis
 ```
 
 ## Usage
