@@ -1,6 +1,6 @@
 {
-  "name": "elysia-redis",
-  "version": "0.1.3",
+  "name": "@atakan75/elysia-redis",
+  "version": "0.1.4",
   "license": "MIT",
   "description": "plugin for Elysia",
   "repository": {
