@@ -35,7 +35,7 @@ const app = new Elysia()
 
 const api = treaty(app);
 
-describe('elysia-plugin', () => {
+describe('elysia-redis', () => {
     it('should return elysia-redis', async () => {
         const { data } = await api.index.get();
 
