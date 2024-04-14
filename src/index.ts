@@ -8,6 +8,14 @@ class RedisClient {
 
   constructor(_connectionString?: string) {
     this.redis = _connectionString ? new Redis(_connectionString) : new Redis();
+
+    this.redis.on('error', error => {
+      console.error(`[Redis] Error:`, error);
+    });
+
+    this.redis.on('close', () => {
+      console.error(`[Redis] Connection closed.`);
+    });
   }
 
   async set(key: string, value: string, expiresAt: number) {
@@ -29,14 +37,14 @@ class RedisClient {
 
 export const redis = () => {
   return new Elysia({ name: '@Atakan75/elysia-redis' })
-  .use(env({
-    REDIS_URL: t.String({
-      default: 'redis://localhost:6379',
-    })
-  }))
-  .decorate(({ env }) => ({
-    redis: new RedisClient(env.REDIS_URL)
-  }));
+    .use(env({
+      REDIS_URL: t.String({
+        default: 'redis://localhost:6379',
+      })
+    }))
+    .decorate(({ env }) => ({
+      redis: new RedisClient(env.REDIS_URL)
+    }));
 };
 
 export type RedisClientType = InstanceType<typeof RedisClient>;
