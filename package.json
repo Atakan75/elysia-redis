@@ -1,0 +1,56 @@
+{
+  "name": "elysia-redis",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "plugin for Elysia",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Atakan75/elysia-redis"
+  },
+  "bugs": "https://github.com/Atakan75/elysia-redis/issues",
+  "homepage": "https://github.com/Atakan75/elysia-redis",
+  "keywords": [
+    "elysia",
+    "plugin",
+    "redis",
+    "cache"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch examples/index.ts",
+    "release": "npm run test && npm run build && bumpp && npm publish --access public && git push --follow-tags",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "build": "unbuild"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "bun": "./dist/index.mjs",
+      "node": "./dist/index.cjs",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "bumpp": "^9.4.0",
+    "elysia": "^1.0.9",
+    "typescript": "^5.4.3",
+    "unbuild": "^2.0.0"
+  },
+  "peerDependencies": {
+    "elysia": ">= 1.0.0"
+  },
+  "dependencies": {
+    "@yolk-oss/elysia-env": "^1.0.2",
+    "ioredis": "^5.3.2"
+  }
+}
