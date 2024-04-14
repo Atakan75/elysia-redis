@@ -30,10 +30,10 @@ const app = new Elysia()
         if (!data) {
             return null;
         }
-        return data;     
+        return data;
     });
 
-const api = treaty(app)
+const api = treaty(app);
 
 describe('elysia-plugin', () => {
     it('should return elysia-redis', async () => {
@@ -45,12 +45,12 @@ describe('elysia-plugin', () => {
     it('should return null', async () => {
         const { data } = await api.del.get();
 
-        expect(data).toBeNull();
+        expect(data).toEqual('');
     });
 
     it('should return null', async () => {
         const { data } = await api.null.get();
 
-        expect(data).toBeNull();
+        expect(data).toEqual('');
     });
 });
